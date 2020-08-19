@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首页</title>
+</head>
+<body>
+  <div id="app">
+    首页
+  </div>
+  <div way-data="lit.title"></div>
+  <div way-repeat="lit.list">
+    $$key - <span way-data="name"></span>
+  </div>
+  <div data-lit="components/page1.html" id="data">未加载</div>
+</body>
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script> -->
+<script src="assets/js/jquery.js?v=3.5.1"></script>
+<script src="assets/js/way.js?v=0.2.1"></script>
+<script src="assets/js/lit.js?v=0.1.1"></script>
+<script>
+  lit(()=> {
+    let data = $.reactive({
+      title: '我是标题',
+      list: [
+        {name:"Pierre"},
+        {name:"Paul"},
+        {name:"Jacques"}
+      ]
+    })
+    setTimeout(() => {
+      data.title = 234234
+    }, 1000)
+  })
+</script>
+</html>
